@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<head>
+   <title>Motion Editor</title>
+   <!-- Latest compiled and minified CSS -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+   <!-- Optional theme -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+   <!-- Latest compiled and minified JavaScript -->
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</head>
+
+<body>
+   <h1>MOTION EDITOR</h1>
+   {% for pin in pins %}
+   <h2>{{ pins[pin].name }}
+   {% if pins[pin].state == true %}
+      is currently <strong>on</strong></h2><div class="row"><div class="col-md-2">
+      <a href="/{{pin}}/off" class="btn btn-block btn-lg btn-default" role="button">Turn off</a></div></div>
+   {% else %}
+      is currently <strong>off</strong></h2><div class="row"><div class="col-md-2">
+      <a href="/{{pin}}/on" class="btn btn-block btn-lg btn-primary" role="button">Turn on</a></div></div>
+   {% endif %}
+{% endfor %}
+   <h2>Voltage is: {{voltage}}
+   <div class="row">
+       <div class="col-md-2"><a href="/1/3" class="btn btn-block btn-lg btn-primary" role="button">TurnLeft</a></div>
+       <div class="col-md-2"><a href="/1/1" class="btn btn-block btn-lg btn-primary" role="button">Forward</a></div>
+       <div class="col-md-2"><a href="/1/4" class="btn btn-block btn-lg btn-primary" role="button">TurnRight</a></div>
+   </div>       
+   <div class="row">
+       <div class="col-md-2"><a href="/1/5" class="btn btn-block btn-lg btn-primary" role="button">MoveLeft</a></div>
+       <div class="col-md-2"><a href="/1/99" class="btn btn-block btn-lg btn-default" role="button">STANDBY</a></div>
+       <div class="col-md-2"><a href="/1/6" class="btn btn-block btn-lg btn-primary" role="button">MoveRight</a></div>
+   </div>
+   <div class="row">
+       <div class="col-md-2"><a href="/1/7" class="btn btn-block btn-lg btn-primary" role="button">LeftKick</a></div>
+       <div class="col-md-2"><a href="/1/2" class="btn btn-block btn-lg btn-primary" role="button">Backward</a></div>
+       <div class="col-md-2"><a href="/1/8" class="btn btn-block btn-lg btn-primary" role="button">RightKick</a></div>
+   </div>
+   <div class="row">
+       <div class="col-md-3"><a href="/1/9" class="btn btn-block btn-lg btn-primary" role="button">SkateForward</a></div>
+       <div class="col-md-3"><a href="/1/10" class="btn btn-block btn-lg btn-primary" role="button">SkateBackward</a></div>
+   </div>
+   <div class="row">
+       <div class="col-md-3"><a href="/1/11" class="btn btn-block btn-lg btn-primary" role="button">GetUp</a></div>
+       <div class="col-md-3"><a href="/1/12" class="btn btn-block btn-lg btn-primary" role="button">FaceDownGetUp</a></div>
+   </div>
+   <div class="row">
+       <div class="col-md-3"><a href="/2/1" class="btn btn-block btn-lg btn-warning" role="button">Bow</a></div>
+       <div class="col-md-3"><a href="/2/2" class="btn btn-block btn-lg btn-warning" role="button">Waving</a></div>
+   </div>
+
+
+</body>
+</html>
